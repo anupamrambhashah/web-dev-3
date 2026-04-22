@@ -1,3 +1,5 @@
+import React from "react";
+
 function StudentTable({ students, updateScore }) {
   return (
     <table>
@@ -18,13 +20,9 @@ function StudentTable({ students, updateScore }) {
 
             <td>
               {stu.score >= 40 ? (
-                <span style={{ color: "green", fontWeight: "bold" }}>
-                  Pass
-                </span>
+                <span style={{ color: "green" }}>Pass</span>
               ) : (
-                <span style={{ color: "red", fontWeight: "bold" }}>
-                  Fail
-                </span>
+                <span style={{ color: "red" }}>Fail</span>
               )}
             </td>
 
