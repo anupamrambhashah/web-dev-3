@@ -1,20 +1,33 @@
-function StudentRow({ student, updateScore }) {
-  const isPass = student.score >= 40;
+import React from "react";
 
+function StudentRow({ student, updateScore }) {
   return (
     <tr>
       <td>{student.name}</td>
+      <td>{student.score}</td>
+
+      <td>
+        {student.score >= 40 ? (
+          <span style={{ color: "green", fontWeight: "bold" }}>
+            Pass
+          </span>
+        ) : (
+          <span style={{ color: "red", fontWeight: "bold" }}>
+            Fail
+          </span>
+        )}
+      </td>
+
       <td>
         <input
           type="number"
-          value={student.score}
-          onChange={(e) => updateScore(student.id, e.target.value)}
+          onChange={(e) =>
+            updateScore(student.id, e.target.value)
+          }
         />
-      </td>
-      <td style={{ color: isPass ? "green" : "red" }}>
-        {isPass ? "Pass" : "Fail"}
       </td>
     </tr>
   );
 }
+
 export default StudentRow;
