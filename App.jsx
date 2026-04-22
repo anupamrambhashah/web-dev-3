@@ -1,3 +1,4 @@
+import React from "react";   // ✅ IMPORTANT
 import { useState } from "react";
 import Header from "./components/Header";
 import AddStudentForm from "./components/AddStudentForm";
@@ -11,11 +12,7 @@ function App() {
 
   const addStudent = (name, score) => {
     if (!name || score === "") return;
-
-    setStudents([
-      ...students,
-      { id: Date.now(), name, score: Number(score) }
-    ]);
+    setStudents([...students, { id: Date.now(), name, score }]);
   };
 
   const updateScore = (id, newScore) => {
